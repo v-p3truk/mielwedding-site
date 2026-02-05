@@ -1,102 +1,191 @@
+import type { Locale } from '@/lib/i18n'
+
 export interface Service {
-  slug: string
-  title: string
+  id: string
+  slugs: { en: string; ru: string }
+  title: { en: string; ru: string }
   price: string
-  description: string
-  features: string[]
+  description: { en: string; ru: string }
+  features: { en: string[]; ru: string[] }
   image: string
 }
 
 export const services: Service[] = [
   {
-    slug: 'apostil',
-    title: 'Апостиль',
-    price: 'от 350$',
-    description: 'Легализация документов для международного признания брака',
-    features: [
-      'Оформление апостиля на свидетельство о браке',
-      'Перевод документов',
-      'Нотариальное заверение',
-      'Консультация по процедуре'
-    ],
-    image: '/images/services/apostil.jpg'
+    id: 'apostille',
+    slugs: { en: 'apostille', ru: 'apostil' },
+    title: { en: 'Apostille', ru: 'Апостиль' },
+    price: '$350',
+    description: {
+      en: 'Document legalization for international marriage recognition',
+      ru: 'Легализация документов для международного признания брака'
+    },
+    features: {
+      en: ['Apostille on marriage certificate', 'Document translation', 'Notarization', 'Procedure consultation'],
+      ru: ['Оформление апостиля на свидетельство о браке', 'Перевод документов', 'Нотариальное заверение', 'Консультация по процедуре']
+    },
+    image: '/images/services/apostille.png'
   },
   {
-    slug: 'legalizacziya',
-    title: 'Легализация',
-    price: 'от 400$',
-    description: 'Полная легализация документов о браке',
-    features: [
-      'Легализация в МИД Грузии',
-      'Консульская легализация',
-      'Подготовка документов',
-      'Сопровождение процесса'
-    ],
-    image: '/images/services/legalization.jpg'
+    id: 'legalization',
+    slugs: { en: 'legalization', ru: 'legalizacziya' },
+    title: { en: 'Legalization', ru: 'Легализация' },
+    price: '$400',
+    description: {
+      en: 'Complete marriage document legalization',
+      ru: 'Полная легализация документов о браке'
+    },
+    features: {
+      en: ['Legalization at Georgia MFA', 'Consular legalization', 'Document preparation', 'Process support'],
+      ru: ['Легализация в МИД Грузии', 'Консульская легализация', 'Подготовка документов', 'Сопровождение процесса']
+    },
+    image: '/images/services/legalization.png'
   },
   {
-    slug: 'vyezdnaya-czeremoniya',
-    title: 'Выездная церемония',
-    price: 'от 500$',
-    description: 'Романтическая церемония в живописных местах Грузии',
-    features: [
-      'Выбор локации',
-      'Декор и оформление',
-      'Координация мероприятия',
-      'Фото и видеосъёмка'
-    ],
-    image: '/images/services/ceremony.jpg'
+    id: 'outdoor-ceremony',
+    slugs: { en: 'outdoor-wedding-ceremony', ru: 'vyezdnaya-czeremoniya' },
+    title: { en: 'Outdoor Wedding Ceremony', ru: 'Выездная церемония' },
+    price: '$500',
+    description: {
+      en: 'Romantic ceremony in picturesque locations of Georgia',
+      ru: 'Романтическая церемония в живописных местах Грузии'
+    },
+    features: {
+      en: ['Location selection', 'Decor and design', 'Event coordination', 'Photo and video'],
+      ru: ['Выбор локации', 'Декор и оформление', 'Координация мероприятия', 'Фото и видеосъёмка']
+    },
+    image: '/images/services/outdoor-ceremony.jpg'
   },
   {
-    slug: 'venchanie',
-    title: 'Венчание',
-    price: 'от 600$',
-    description: 'Традиционное венчание в грузинских храмах',
-    features: [
-      'Подбор храма',
-      'Согласование с церковью',
-      'Организация церемонии',
-      'Помощь с документами'
-    ],
-    image: '/images/services/venchanie.jpg'
+    id: 'church-wedding',
+    slugs: { en: 'wedding-ceremony-in-church', ru: 'venchanie' },
+    title: { en: 'Church Wedding Ceremony', ru: 'Венчание' },
+    price: '$600',
+    description: {
+      en: 'Traditional wedding ceremony in Georgian churches',
+      ru: 'Традиционное венчание в грузинских храмах'
+    },
+    features: {
+      en: ['Church selection', 'Church coordination', 'Ceremony organization', 'Document assistance'],
+      ru: ['Подбор храма', 'Согласование с церковью', 'Организация церемонии', 'Помощь с документами']
+    },
+    image: '/images/services/church-wedding.webp'
   },
   {
-    slug: 'nikah-2',
-    title: 'Никах',
-    price: 'от 550$',
-    description: 'Организация мусульманской свадебной церемонии',
-    features: [
-      'Поиск имама',
-      'Организация церемонии',
-      'Традиционное оформление',
-      'Консультация по обряду'
-    ],
+    id: 'nikah',
+    slugs: { en: 'nikah', ru: 'islam-nikah' },
+    title: { en: 'Nikah', ru: 'Никах' },
+    price: '$550',
+    description: {
+      en: 'Organization of Muslim wedding ceremony',
+      ru: 'Организация мусульманской свадебной церемонии'
+    },
+    features: {
+      en: ['Imam search', 'Ceremony organization', 'Traditional decoration', 'Ritual consultation'],
+      ru: ['Поиск имама', 'Организация церемонии', 'Традиционное оформление', 'Консультация по обряду']
+    },
     image: '/images/services/nikah.jpg'
   },
   {
-    slug: 'predlozhenie',
-    title: 'Предложение',
-    price: 'от 300$',
-    description: 'Организация романтического предложения руки и сердца',
-    features: [
-      'Выбор локации',
-      'Декор и цветы',
-      'Фотограф',
-      'Сюрприз-координация'
-    ],
-    image: '/images/services/proposal.jpg'
+    id: 'proposal',
+    slugs: { en: 'proposal', ru: 'predlozhenie' },
+    title: { en: 'Marriage Proposal', ru: 'Предложение' },
+    price: '$300',
+    description: {
+      en: 'Organization of romantic marriage proposal',
+      ru: 'Организация романтического предложения руки и сердца'
+    },
+    features: {
+      en: ['Location selection', 'Decor and flowers', 'Photographer', 'Surprise coordination'],
+      ru: ['Выбор локации', 'Декор и цветы', 'Фотограф', 'Сюрприз-координация']
+    },
+    image: '/images/services/proposal.png'
   },
   {
-    slug: 'devichnik-malchishnik',
-    title: 'Девичник / Мальчишник',
-    price: 'от 250$',
-    description: 'Организация прощания с холостой жизнью',
-    features: [
-      'Планирование программы',
-      'Бронирование локаций',
-      'Развлечения и активности',
-      'Трансфер'
-    ],
-    image: '/images/services/party.jpg'
+    id: 'bachelor-party',
+    slugs: { en: 'bachelorette-bachelor-party', ru: 'devichnik-malchishnik' },
+    title: { en: 'Bachelorette / Bachelor Party', ru: 'Девичник / Мальчишник' },
+    price: '$250',
+    description: {
+      en: 'Organization of pre-wedding celebration',
+      ru: 'Организация прощания с холостой жизнью'
+    },
+    features: {
+      en: ['Program planning', 'Venue booking', 'Entertainment and activities', 'Transfer'],
+      ru: ['Планирование программы', 'Бронирование локаций', 'Развлечения и активности', 'Трансфер']
+    },
+    image: '/images/services/bachelor-party.jpg'
+  },
+  {
+    id: 'makeup',
+    slugs: { en: 'bridal-makeup-and-hair-in-tbilisi', ru: 'svadebnyj-makiyazh-i-prichyoska-v-tbilisi' },
+    title: { en: 'Bridal Makeup & Hair', ru: 'Свадебный макияж и причёска' },
+    price: '$200',
+    description: {
+      en: 'Professional bridal makeup and hairstyling in Tbilisi',
+      ru: 'Профессиональный свадебный макияж и укладка в Тбилиси'
+    },
+    features: {
+      en: ['Professional makeup artist', 'Hairstylist', 'Trial session', 'Touch-ups during event'],
+      ru: ['Профессиональный визажист', 'Стилист по волосам', 'Пробный образ', 'Коррекция в течение дня']
+    },
+    image: '/images/services/makeup.jpg'
+  },
+  {
+    id: 'photoshoot',
+    slugs: { en: 'wedding-photoshoot-in-tbilisi', ru: 'svadebnaya-fotosessiya-v-tbilisi' },
+    title: { en: 'Wedding Photoshoot', ru: 'Свадебная фотосессия' },
+    price: '$400',
+    description: {
+      en: 'Professional wedding photography in Tbilisi',
+      ru: 'Профессиональная свадебная фотосъёмка в Тбилиси'
+    },
+    features: {
+      en: ['Professional photographer', '4-6 hours coverage', 'Edited photos', 'Online gallery'],
+      ru: ['Профессиональный фотограф', '4-6 часов съёмки', 'Обработанные фото', 'Онлайн-галерея']
+    },
+    image: '/images/services/photoshoot.webp'
+  },
+  {
+    id: 'videography',
+    slugs: { en: 'wedding-videography-in-tbilisi', ru: 'svadebnaya-videosyomka-v-tbilisi' },
+    title: { en: 'Wedding Videography', ru: 'Свадебная видеосъёмка' },
+    price: '$600',
+    description: {
+      en: 'Professional wedding videography in Tbilisi',
+      ru: 'Профессиональная свадебная видеосъёмка в Тбилиси'
+    },
+    features: {
+      en: ['Professional videographer', 'Full day coverage', 'Edited highlight video', 'Full ceremony video'],
+      ru: ['Профессиональный видеограф', 'Съёмка полного дня', 'Смонтированный клип', 'Полное видео церемонии']
+    },
+    image: '/images/services/videography.jpg'
+  },
+  {
+    id: 'israelis',
+    slugs: { en: 'wedding-in-georgia-for-israelis', ru: 'svadba-v-gruzii-dlya-izrailtyan' },
+    title: { en: 'Wedding for Israeli Couples', ru: 'Свадьба для израильтян' },
+    price: '$800',
+    description: {
+      en: 'Special wedding packages for Israeli couples',
+      ru: 'Специальные свадебные пакеты для пар из Израиля'
+    },
+    features: {
+      en: ['Hebrew-speaking coordinator', 'Kosher options available', 'Israeli document requirements', 'Direct flights support'],
+      ru: ['Координатор с ивритом', 'Кошерные опции', 'Израильские требования к документам', 'Помощь с перелётами']
+    },
+    image: '/images/services/israelis.png'
   }
 ]
+
+export function getService(slug: string, locale: Locale): Service | undefined {
+  return services.find(s => s.slugs[locale] === slug)
+}
+
+export function getServiceBySlug(slug: string): Service | undefined {
+  return services.find(s => s.slugs.en === slug || s.slugs.ru === slug)
+}
+
+export function getAllServiceSlugs(locale: Locale): string[] {
+  return services.map(s => s.slugs[locale])
+}

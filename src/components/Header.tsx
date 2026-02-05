@@ -5,18 +5,37 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, Phone } from 'lucide-react'
 
-const navigation = [
-  { name: 'О компании', href: '/o-nas' },
-  { name: 'Услуги и цены', href: '/uslugi-i-czeny' },
-  { name: 'Локации', href: '/lokaczii' },
-  { name: 'Портфолио', href: '/portfolio' },
-  { name: 'Блог', href: '/blog' },
-  { name: 'Отзывы', href: '/otzyvy' },
-  { name: 'FAQ', href: '/faq' },
-  { name: 'Контакты', href: '/kontakty' },
+const navigationRu = [
+  { name: 'О компании', href: '/ru/o-nas' },
+  { name: 'Услуги и цены', href: '/ru/uslugi-i-czeny' },
+  { name: 'Локации', href: '/ru/lokaczii' },
+  { name: 'Портфолио', href: '/ru/portfolio' },
+  { name: 'Блог', href: '/ru/blog' },
+  { name: 'Отзывы', href: '/ru/otzyvy' },
+  { name: 'FAQ', href: '/ru/faq' },
+  { name: 'Контакты', href: '/ru/kontakty' },
 ]
 
-export default function Header() {
+const navigationEn = [
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Services & Prices', href: '/services-and-prices' },
+  { name: 'Locations', href: '/locations' },
+  { name: 'Portfolio', href: '/our-portfolio' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'FAQ', href: '/frequently-asked-questions' },
+  { name: 'Contacts', href: '/contacts' },
+]
+
+interface HeaderProps {
+  locale?: 'ru' | 'en'
+}
+
+export default function Header({ locale = 'ru' }: HeaderProps) {
+  const navigation = locale === 'en' ? navigationEn : navigationRu
+  const ctaText = locale === 'en' ? 'Contact Us' : 'Связаться'
+  const contactHref = locale === 'en' ? '/contacts' : '/ru/kontakty'
+  const homeHref = locale === 'en' ? '/' : '/ru'
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -24,7 +43,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href={homeHref} className="flex items-center">
             <Image
               src="/images/logo.jpg"
               alt="Miel Wedding"
@@ -57,10 +76,10 @@ export default function Header() {
               <span className="font-medium">+995 505 05 34 24</span>
             </a>
             <Link
-              href="/kontakty"
+              href={contactHref}
               className="btn-primary"
             >
-              Связаться
+              {ctaText}
             </Link>
           </div>
 
@@ -100,11 +119,11 @@ export default function Header() {
                 <span className="font-medium">+995 505 05 34 24</span>
               </a>
               <Link
-                href="/kontakty"
+                href={contactHref}
                 className="btn-primary text-center mt-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Связаться
+                {ctaText}
               </Link>
             </div>
           </div>

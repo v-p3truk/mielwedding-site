@@ -1,18 +1,53 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Instagram, MessageCircle } from 'lucide-react'
 
-const navigation = [
-  { name: 'О компании', href: '/o-nas' },
-  { name: 'Услуги и цены', href: '/uslugi-i-czeny' },
-  { name: 'Локации', href: '/lokaczii' },
-  { name: 'Портфолио', href: '/portfolio' },
-  { name: 'Блог', href: '/blog' },
-  { name: 'Отзывы', href: '/otzyvy' },
-  { name: 'FAQ', href: '/faq' },
-  { name: 'Контакты', href: '/kontakty' },
+const navigationRu = [
+  { name: 'О компании', href: '/ru/o-nas' },
+  { name: 'Услуги и цены', href: '/ru/uslugi-i-czeny' },
+  { name: 'Локации', href: '/ru/lokaczii' },
+  { name: 'Портфолио', href: '/ru/portfolio' },
+  { name: 'Блог', href: '/ru/blog' },
+  { name: 'Отзывы', href: '/ru/otzyvy' },
+  { name: 'FAQ', href: '/ru/faq' },
+  { name: 'Контакты', href: '/ru/kontakty' },
 ]
 
-export default function Footer() {
+const navigationEn = [
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Services & Prices', href: '/services-and-prices' },
+  { name: 'Locations', href: '/locations' },
+  { name: 'Portfolio', href: '/our-portfolio' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'FAQ', href: '/frequently-asked-questions' },
+  { name: 'Contacts', href: '/contacts' },
+]
+
+const contentRu = {
+  description: 'Организация свадеб и церемоний в Грузии. Официальная регистрация брака за 1 день.',
+  navigation: 'Навигация',
+  information: 'Информация',
+  contacts: 'Контакты',
+  address: 'проспект Шота Руставели 2, Тбилиси, 0108',
+  copyright: 'Все права защищены.',
+}
+
+const contentEn = {
+  description: 'Wedding organization and ceremonies in Georgia. Official marriage registration in 1 day.',
+  navigation: 'Navigation',
+  information: 'Information',
+  contacts: 'Contacts',
+  address: '2 Shota Rustaveli Ave, Tbilisi, 0108',
+  copyright: 'All rights reserved.',
+}
+
+interface FooterProps {
+  locale?: 'ru' | 'en'
+}
+
+export default function Footer({ locale = 'ru' }: FooterProps) {
+  const navigation = locale === 'en' ? navigationEn : navigationRu
+  const content = locale === 'en' ? contentEn : contentRu
   return (
     <footer className="bg-dark text-white">
       <div className="container mx-auto px-4 py-12">
@@ -21,13 +56,13 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Miel Wedding</h3>
             <p className="text-gray-300 text-sm">
-              Организация свадеб и церемоний в Грузии. Официальная регистрация брака за 1 день.
+              {content.description}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-4">Навигация</h4>
+            <h4 className="font-semibold mb-4">{content.navigation}</h4>
             <ul className="space-y-2">
               {navigation.slice(0, 4).map((item) => (
                 <li key={item.name}>
@@ -44,7 +79,7 @@ export default function Footer() {
 
           {/* More Links */}
           <div>
-            <h4 className="font-semibold mb-4">Информация</h4>
+            <h4 className="font-semibold mb-4">{content.information}</h4>
             <ul className="space-y-2">
               {navigation.slice(4).map((item) => (
                 <li key={item.name}>
@@ -61,7 +96,7 @@ export default function Footer() {
 
           {/* Contacts */}
           <div>
-            <h4 className="font-semibold mb-4">Контакты</h4>
+            <h4 className="font-semibold mb-4">{content.contacts}</h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -84,7 +119,7 @@ export default function Footer() {
               <li>
                 <div className="flex items-start gap-2 text-gray-300 text-sm">
                   <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>проспект Шота Руставели 2, Тбилиси, 0108</span>
+                  <span>{content.address}</span>
                 </div>
               </li>
             </ul>
@@ -110,7 +145,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Miel Wedding. Все права защищены.</p>
+          <p>&copy; {new Date().getFullYear()} Miel Wedding. {content.copyright}</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services & Prices",
+    "locations": "Locations",
+    "portfolio": "Our Portfolio",
+    "blog": "Blog",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Wedding in Georgia — Your Love Story",
+    "subtitle": "Official marriage registration in 1 day. Organizing ceremonies in the most picturesque places of Georgia.",
+    "cta_contact": "Contact Us",
+    "cta_prices": "View Prices"
+  },
+  "common": {
+    "read_more": "Read more",
+    "learn_more": "Learn more",
+    "book_now": "Book Now",
+    "contact_us": "Contact Us",
+    "whatsapp": "Write on WhatsApp",
+    "all_services": "All Services",
+    "all_locations": "All Locations",
+    "get_quote": "Get a Quote",
+    "from": "from"
+  },
+  "features": {
+    "registration": "Registration in 1 day",
+    "registration_desc": "Official marriage certificate with apostille, recognized worldwide",
+    "locations": "Unique Locations",
+    "locations_desc": "Mountains, vineyards, ancient temples — choose the perfect place for your ceremony",
+    "support": "Full Support",
+    "support_desc": "From documents to banquet — we take care of everything"
+  },
+  "sections": {
+    "our_services": "Our Services",
+    "services_desc": "We offer a full range of services for organizing your perfect wedding in Georgia",
+    "wedding_locations": "Wedding Locations",
+    "locations_desc": "Georgia offers an incredible variety of places for your wedding ceremony",
+    "ready_to_start": "Ready to Start Planning?",
+    "contact_desc": "Contact us to discuss the details of your wedding. We will answer all questions and help you choose the ideal program."
+  },
+  "footer": {
+    "description": "Wedding and ceremony organization in Georgia. Official marriage registration in 1 day.",
+    "navigation": "Navigation",
+    "information": "Information",
+    "contacts": "Contacts",
+    "rights": "All rights reserved."
+  },
+  "contact": {
+    "title": "Contacts",
+    "subtitle": "Contact us in any convenient way",
+    "how_to_contact": "How to Contact Us",
+    "phone": "Phone",
+    "phone_desc": "Call or message anytime",
+    "whatsapp_desc": "Quick response guaranteed",
+    "email": "Email",
+    "email_desc": "For detailed inquiries",
+    "instagram_desc": "See our work",
+    "office": "Office",
+    "working_hours": "Working Hours",
+    "weekdays": "Mon-Fri: 10:00 - 19:00",
+    "weekends": "Sat-Sun: by appointment",
+    "form_title": "Leave a Request",
+    "name": "Your Name",
+    "name_placeholder": "How should we address you?",
+    "email_placeholder": "your@email.com",
+    "phone_placeholder": "+7 999 123 45 67",
+    "date": "Approximate Wedding Date",
+    "date_placeholder": "e.g., June 2025",
+    "message": "Message",
+    "message_placeholder": "Tell us about your wishes...",
+    "submit": "Send Request",
+    "privacy": "By clicking the button, you agree to the processing of personal data"
+  }
+}
