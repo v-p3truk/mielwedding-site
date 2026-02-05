@@ -42,3 +42,24 @@ export function getLocalizedRoute(enPath: string, locale: Locale): string {
   if (locale === 'en') return enPath
   return routeMappings[enPath as keyof typeof routeMappings] || `/ru${enPath}`
 }
+
+// Reverse mapping: RU paths -> EN paths
+const reverseRouteMappings: Record<string, string> = Object.fromEntries(
+  Object.entries(routeMappings).map(([en, ru]) => [ru, en])
+)
+
+export function getAlternateRoute(pathname: string, currentLocale: Locale): string {
+  if (currentLocale === 'en') {
+    // EN -> RU: check exact mapping first
+    const mapped = routeMappings[pathname as keyof typeof routeMappings]
+    if (mapped) return mapped
+    // Fallback: add /ru prefix
+    return `/ru${pathname === '/' ? '' : pathname}`
+  } else {
+    // RU -> EN: check exact reverse mapping
+    const mapped = reverseRouteMappings[pathname]
+    if (mapped) return mapped
+    // Fallback: remove /ru prefix
+    return pathname.replace(/^\/ru/, '') || '/'
+  }
+}

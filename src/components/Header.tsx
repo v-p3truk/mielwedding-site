@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, Phone } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { Menu, X, Phone, Globe } from 'lucide-react'
+import { getAlternateRoute } from '@/lib/i18n'
 
 const navigationRu = [
   { name: 'О компании', href: '/ru/o-nas' },
@@ -37,6 +39,9 @@ export default function Header({ locale = 'ru' }: HeaderProps) {
   const contactHref = locale === 'en' ? '/contacts' : '/ru/kontakty'
   const homeHref = locale === 'en' ? '/' : '/ru'
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const alternateLabel = locale === 'en' ? 'RU' : 'EN'
+  const alternateHref = getAlternateRoute(pathname, locale)
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -66,7 +71,7 @@ export default function Header({ locale = 'ru' }: HeaderProps) {
             ))}
           </div>
 
-          {/* Phone & CTA */}
+          {/* Phone, Language Switch & CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:+995505053424"
@@ -75,6 +80,13 @@ export default function Header({ locale = 'ru' }: HeaderProps) {
               <Phone className="h-4 w-4" />
               <span className="font-medium">+995 505 05 34 24</span>
             </a>
+            <Link
+              href={alternateHref}
+              className="flex items-center gap-1.5 text-dark hover:text-gold transition-colors text-sm font-medium"
+            >
+              <Globe className="h-4 w-4" />
+              {alternateLabel}
+            </Link>
             <Link
               href={contactHref}
               className="btn-primary"
@@ -118,6 +130,14 @@ export default function Header({ locale = 'ru' }: HeaderProps) {
                 <Phone className="h-4 w-4" />
                 <span className="font-medium">+995 505 05 34 24</span>
               </a>
+              <Link
+                href={alternateHref}
+                className="flex items-center gap-2 text-dark hover:text-gold transition-colors font-medium mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Globe className="h-5 w-5" />
+                {alternateLabel}
+              </Link>
               <Link
                 href={contactHref}
                 className="btn-primary text-center mt-2"
