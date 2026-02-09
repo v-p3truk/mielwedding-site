@@ -55,23 +55,17 @@ export default function ContactForm({ locale }: ContactFormProps) {
     const formData = new FormData(form)
 
     try {
-      // Using Formspree - replace with your own endpoint
-      const response = await fetch('https://formspree.io/f/xwpkgqvp', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
       })
 
       if (response.ok) {
         router.push(t.thankYouPath)
       } else {
-        // Fallback: redirect anyway (form might still work via mailto)
         router.push(t.thankYouPath)
       }
     } catch {
-      // Fallback: redirect anyway
       router.push(t.thankYouPath)
     }
   }
