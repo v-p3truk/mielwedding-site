@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title.ru}</h1>
             <p className="text-lg text-dark-light mb-4">{service.description.ru}</p>
-            <p className="text-2xl font-bold text-gold">{service.price}</p>
+            <p className="text-2xl font-bold text-gold">{service.price.ru}</p>
           </div>
         </div>
       </section>

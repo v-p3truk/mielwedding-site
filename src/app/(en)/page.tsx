@@ -102,7 +102,7 @@ export default function Home() {
                     {service.title.en}
                   </h3>
                   <p className="text-dark-light text-sm mb-3">{service.description.en}</p>
-                  <p className="text-gold font-semibold">{service.price}</p>
+                  <p className="text-gold font-semibold">{service.price.en}</p>
                 </div>
               </Link>
             ))}

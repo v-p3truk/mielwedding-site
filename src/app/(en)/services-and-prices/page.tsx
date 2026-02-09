@@ -84,7 +84,7 @@ export default function ServicesAndPricesPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">{service.title.en}</h3>
-                  <p className="text-gold font-medium mb-3">{service.price}</p>
+                  <p className="text-gold font-medium mb-3">{service.price.en}</p>
                   <p className="text-dark-light text-sm mb-4">{service.description.en}</p>
                   <ul className="space-y-2 mb-4">
                     {service.features.en.slice(0, 3).map((feature, idx) => (

@@ -4,7 +4,7 @@ export interface Service {
   id: string
   slugs: { en: string; ru: string }
   title: { en: string; ru: string }
-  price: string
+  price: { en: string; ru: string }
   description: { en: string; ru: string }
   features: { en: string[]; ru: string[] }
   image: string
@@ -15,7 +15,7 @@ export const services: Service[] = [
     id: 'apostille',
     slugs: { en: 'apostille', ru: 'apostil' },
     title: { en: 'Apostille', ru: 'Апостиль' },
-    price: '$350',
+    price: { en: 'from $330', ru: 'От 330$' },
     description: {
       en: 'Document legalization for international marriage recognition',
       ru: 'Легализация документов для международного признания брака'
@@ -30,7 +30,7 @@ export const services: Service[] = [
     id: 'legalization',
     slugs: { en: 'legalization', ru: 'legalizacziya' },
     title: { en: 'Legalization', ru: 'Легализация' },
-    price: '$400',
+    price: { en: 'from $495', ru: 'От 495$' },
     description: {
       en: 'Complete marriage document legalization',
       ru: 'Полная легализация документов о браке'
@@ -45,7 +45,7 @@ export const services: Service[] = [
     id: 'outdoor-ceremony',
     slugs: { en: 'outdoor-wedding-ceremony', ru: 'vyezdnaya-czeremoniya' },
     title: { en: 'Outdoor Wedding Ceremony', ru: 'Выездная церемония' },
-    price: '$500',
+    price: { en: 'upon request', ru: 'по запросу' },
     description: {
       en: 'Romantic ceremony in picturesque locations of Georgia',
       ru: 'Романтическая церемония в живописных местах Грузии'
@@ -60,7 +60,7 @@ export const services: Service[] = [
     id: 'church-wedding',
     slugs: { en: 'wedding-ceremony-in-church', ru: 'venchanie' },
     title: { en: 'Church Wedding Ceremony', ru: 'Венчание' },
-    price: '$600',
+    price: { en: 'from $210', ru: 'От 210$' },
     description: {
       en: 'Traditional wedding ceremony in Georgian churches',
       ru: 'Традиционное венчание в грузинских храмах'
@@ -75,7 +75,7 @@ export const services: Service[] = [
     id: 'nikah',
     slugs: { en: 'nikah', ru: 'islam-nikah' },
     title: { en: 'Nikah', ru: 'Никах' },
-    price: '$550',
+    price: { en: 'from $150', ru: 'От 150$' },
     description: {
       en: 'Organization of Muslim wedding ceremony',
       ru: 'Организация мусульманской свадебной церемонии'
@@ -90,7 +90,7 @@ export const services: Service[] = [
     id: 'proposal',
     slugs: { en: 'proposal', ru: 'predlozhenie' },
     title: { en: 'Marriage Proposal', ru: 'Предложение' },
-    price: '$300',
+    price: { en: 'from $300', ru: 'От 300$' },
     description: {
       en: 'Organization of romantic marriage proposal',
       ru: 'Организация романтического предложения руки и сердца'
@@ -105,7 +105,7 @@ export const services: Service[] = [
     id: 'bachelor-party',
     slugs: { en: 'bachelorette-bachelor-party', ru: 'devichnik-malchishnik' },
     title: { en: 'Bachelorette / Bachelor Party', ru: 'Девичник / Мальчишник' },
-    price: '$250',
+    price: { en: 'from $250', ru: 'От 250$' },
     description: {
       en: 'Organization of pre-wedding celebration',
       ru: 'Организация прощания с холостой жизнью'
@@ -120,7 +120,7 @@ export const services: Service[] = [
     id: 'makeup',
     slugs: { en: 'bridal-makeup-and-hair-in-tbilisi', ru: 'svadebnyj-makiyazh-i-prichyoska-v-tbilisi' },
     title: { en: 'Bridal Makeup & Hair', ru: 'Свадебный макияж и причёска' },
-    price: '$200',
+    price: { en: 'from $200', ru: 'От 200$' },
     description: {
       en: 'Professional bridal makeup and hairstyling in Tbilisi',
       ru: 'Профессиональный свадебный макияж и укладка в Тбилиси'
@@ -135,7 +135,7 @@ export const services: Service[] = [
     id: 'photoshoot',
     slugs: { en: 'wedding-photoshoot-in-tbilisi', ru: 'svadebnaya-fotosessiya-v-tbilisi' },
     title: { en: 'Wedding Photoshoot', ru: 'Свадебная фотосессия' },
-    price: '$400',
+    price: { en: 'from $400', ru: 'От 400$' },
     description: {
       en: 'Professional wedding photography in Tbilisi',
       ru: 'Профессиональная свадебная фотосъёмка в Тбилиси'
@@ -150,7 +150,7 @@ export const services: Service[] = [
     id: 'videography',
     slugs: { en: 'wedding-videography-in-tbilisi', ru: 'svadebnaya-videosyomka-v-tbilisi' },
     title: { en: 'Wedding Videography', ru: 'Свадебная видеосъёмка' },
-    price: '$600',
+    price: { en: 'from $600', ru: 'От 600$' },
     description: {
       en: 'Professional wedding videography in Tbilisi',
       ru: 'Профессиональная свадебная видеосъёмка в Тбилиси'
@@ -165,7 +165,7 @@ export const services: Service[] = [
     id: 'israelis',
     slugs: { en: 'wedding-in-georgia-for-israelis', ru: 'svadba-v-gruzii-dlya-izrailtyan' },
     title: { en: 'Wedding for Israeli Couples', ru: 'Свадьба для израильтян' },
-    price: '$800',
+    price: { en: 'from $800', ru: 'От 800$' },
     description: {
       en: 'Special wedding packages for Israeli couples',
       ru: 'Специальные свадебные пакеты для пар из Израиля'

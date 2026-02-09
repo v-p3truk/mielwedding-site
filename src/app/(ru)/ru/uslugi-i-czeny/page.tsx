@@ -52,7 +52,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                   <div className="flex items-center justify-between pt-4 border-t">
-                    <span className="text-gold font-bold text-lg">{service.price}</span>
+                    <span className="text-gold font-bold text-lg">{service.price.ru}</span>
                     <Link
                       href={`/uslugi-i-czeny/${service.slugs.ru}`}
                       className="text-dark hover:text-gold transition-colors flex items-center gap-1 text-sm font-medium"

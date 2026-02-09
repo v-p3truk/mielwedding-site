@@ -56,7 +56,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title.en}</h1>
-            <p className="text-gold text-2xl font-semibold mb-4">{service.price}</p>
+            <p className="text-gold text-2xl font-semibold mb-4">{service.price.en}</p>
             <p className="text-lg text-dark-light">{service.description.en}</p>
           </div>
         </div>
@@ -119,7 +119,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                   <div className="p-4">
                     <h3 className="text-lg font-semibold mb-2 group-hover:text-gold transition-colors">{s.title.en}</h3>
-                    <p className="text-gold font-medium mb-2">{s.price}</p>
+                    <p className="text-gold font-medium mb-2">{s.price.en}</p>
                     <p className="text-dark-light text-sm">{s.description.en}</p>
                   </div>
                 </Link>

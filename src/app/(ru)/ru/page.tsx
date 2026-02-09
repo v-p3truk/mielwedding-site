@@ -102,7 +102,7 @@ export default function Home() {
                     {service.title.ru}
                   </h3>
                   <p className="text-dark-light text-sm mb-3">{service.description.ru}</p>
-                  <p className="text-gold font-semibold">{service.price}</p>
+                  <p className="text-gold font-semibold">{service.price.ru}</p>
                 </div>
               </Link>
             ))}
