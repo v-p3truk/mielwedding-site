@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+function escapeHTML(str: string): string {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
@@ -18,13 +22,13 @@ export async function POST(request: NextRequest) {
     }
 
     const text = [
-      '🔔 *Новая заявка с сайта mielwedding.com*',
+      '🔔 <b>Новая заявка с сайта mielwedding.com</b>',
       '',
-      `👤 *Имя:* ${name || '—'}`,
-      `📧 *Email:* ${email || '—'}`,
-      `📱 *Телефон:* ${phone || '—'}`,
-      `📅 *Дата свадьбы:* ${date || '—'}`,
-      `💬 *Сообщение:* ${message || '—'}`,
+      `👤 <b>Имя:</b> ${escapeHTML(name || '—')}`,
+      `📧 <b>Email:</b> ${escapeHTML(email || '—')}`,
+      `📱 <b>Телефон:</b> ${escapeHTML(phone || '—')}`,
+      `📅 <b>Дата свадьбы:</b> ${escapeHTML(date || '—')}`,
+      `💬 <b>Сообщение:</b> ${escapeHTML(message || '—')}`,
     ].join('\n')
 
     const telegramResponse = await fetch(
@@ -35,13 +39,15 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           chat_id: chatId,
           text,
-          parse_mode: 'Markdown',
+          parse_mode: 'HTML',
         }),
       }
     )
 
     if (!telegramResponse.ok) {
-      console.error('Telegram API error:', await telegramResponse.text())
+      const errorText = await telegramResponse.text()
+      console.error('Telegram API error:', errorText)
+      return NextResponse.json({ ok: false, error: errorText }, { status: 502 })
     }
 
     return NextResponse.json({ ok: true })
